@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <script>
     tailwind.config = {
@@ -43,7 +44,7 @@
 
   <style>
     body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #151515; }
-    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
     .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); }
 
     .btn-primary {
@@ -53,6 +54,9 @@
       border-radius: 2px;
       box-shadow: 0 8px 20px -6px rgba(110, 81, 58, 0.6);
       border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     .btn-primary:hover {
       background: #151515;
@@ -75,19 +79,290 @@
     .shadow-gold-soft { filter: drop-shadow(0 4px 6px rgba(168, 135, 91, 0.3)); }
     .shadow-gold-intense { filter: drop-shadow(0 8px 12px rgba(110, 81, 58, 0.4)); }
   </style>
-  <script type="importmap">
-  {
-    "imports": {
-      "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-      "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-      "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
-      "react/": "https://esm.sh/react@^19.2.3/",
-      "react": "https://esm.sh/react@^19.2.3"
-    }
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.36.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
   }
-  </script>
+}
+</script>
 </head>
+
 <body class="text-solidity selection:bg-solidity-gold selection:text-white">
-  <div id="root"></div>
+  <!-- Top bar -->
+  <header class="sticky top-0 z-50 border-b border-black/5 glass">
+    <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 gold-gradient shadow-gold-soft rounded-sm"></div>
+        <div class="leading-tight">
+          <div class="font-semibold tracking-tight">Solidity</div>
+          <div class="text-[10px] uppercase tracking-wider text-black/60 font-medium">Consulting & Brokering S.A.R.L.</div>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-7 text-[11px] font-bold uppercase tracking-widest">
+        <a href="#services" class="hover:text-solidity-gold transition">Services</a>
+        <a href="#about" class="hover:text-solidity-gold transition">About</a>
+        <a href="#contact" class="hover:text-solidity-gold transition">Contact</a>
+      </nav>
+
+      <a href="#contact" class="btn-primary px-5 py-2.5 text-[10px] font-black uppercase tracking-widest shadow-gold-soft">
+        Request a Consultation
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="gold-gradient-soft border-b border-black/5">
+    <div class="mx-auto max-w-6xl px-4 py-16 md:py-32 grid md:grid-cols-2 gap-20 items-center">
+      <div>
+        <p class="text-[10px] font-black uppercase tracking-[0.25em] text-black/60 mb-6">Premium Insurance & Fiscal Advisory</p>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tighter leading-[0.95] text-solidity">
+          Senior accounting-backed coverage and advisory <span class="italic font-normal text-solidity-gold shadow-gold-soft">for Lebanon.</span>
+        </h1>
+        <p class="mt-8 text-base md:text-lg text-black/70 leading-relaxed border-l-4 border-solidity-gold pl-6">
+          Solidity Consulting & Brokering S.A.R.L. delivers tailored insurance solutions and fiscal guidance
+          led by CEO Ziad Akiki—focused on protection, clarity, and long-term stability.
+        </p>
+
+        <div class="mt-12 flex flex-col sm:flex-row gap-4">
+          <a href="#services" class="btn-primary px-8 py-4 font-black uppercase text-[10px] tracking-widest text-center shadow-gold">Explore Services</a>
+          <a href="#contact" class="px-8 py-4 font-black uppercase text-[10px] tracking-widest text-center border border-black/15 hover:border-solidity-gold transition rounded-sm">
+            Talk to Us
+          </a>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="rounded-none border-t-8 border-solidity-gold bg-white shadow-gold-lg p-10">
+          <h2 class="text-3xl font-bold tracking-tight text-solidity">What we deliver</h2>
+          <p class="mt-4 text-black/70 text-sm leading-relaxed">
+            Practical recommendations and clear options—no noise, no ambiguity in a volatile market.
+          </p>
+
+          <div class="mt-10 space-y-6 text-[11px] font-black uppercase tracking-widest">
+            <div class="p-5 border border-black/5 bg-solidity-muted/30 rounded-sm">
+              <div class="flex items-center gap-3 text-solidity">
+                <i data-lucide="shield-check" class="w-4 h-4 text-solidity-gold"></i>
+                Insurance Solutions
+              </div>
+              <div class="text-[10px] text-black/50 mt-2 font-medium">Health, Life, Motor, and Corporate policies.</div>
+            </div>
+            <div class="p-5 border border-black/5 bg-solidity-muted/30 rounded-sm">
+              <div class="flex items-center gap-3 text-solidity">
+                <i data-lucide="trending-up" class="w-4 h-4 text-solidity-gold"></i>
+                Fiscal & Accounting Advisory
+              </div>
+              <div class="text-[10px] text-black/50 mt-2 font-medium">Audit-based review for private practice risk.</div>
+            </div>
+          </div>
+          <div class="mt-10 gold-gradient h-1.5 w-24 shadow-gold-soft"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-24 md:py-32">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="max-w-2xl mb-20">
+        <p class="text-[10px] uppercase tracking-[0.25em] text-black/60 font-black">Our Domains</p>
+        <h2 class="mt-4 text-4xl md:text-5xl font-bold tracking-tight text-solidity">Coverage built for professional protection.</h2>
+        <p class="mt-6 text-black/70 leading-relaxed italic">
+          Strategic insurance portfolios categorized by risk type and operational requirement.
+        </p>
+      </div>
+
+      <!-- Accident Category -->
+      <div class="mb-24">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="text-[10px] font-black uppercase tracking-[0.4em] text-solidity-gold">Accident</span>
+          <div class="h-[1px] flex-grow bg-solidity-gold/20 shadow-gold-soft"></div>
+        </div>
+        <h3 class="text-3xl font-bold text-solidity mb-10 tracking-tight">Accident Insurance Policies</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Policy Cards -->
+          <div class="p-10 border border-black/10 rounded-none hover:border-solidity-gold hover:shadow-gold transition-all duration-500 bg-white group">
+            <div class="w-12 h-12 gold-gradient flex items-center justify-center mb-8 shadow-gold-soft group-hover:scale-110 transition-transform">
+              <i data-lucide="car" class="w-6 h-6 text-white"></i>
+            </div>
+            <h4 class="text-xl font-bold text-solidity leading-tight">Vehicle Insurance Policy</h4>
+            <p class="mt-4 text-[10px] text-black/50 font-black uppercase tracking-widest leading-relaxed">Comprehensive transit and fleet coverage.</p>
+          </div>
+
+          <div class="p-10 border border-black/10 rounded-none hover:border-solidity-gold hover:shadow-gold transition-all duration-500 bg-white group">
+            <div class="w-12 h-12 gold-gradient flex items-center justify-center mb-8 shadow-gold-soft group-hover:scale-110 transition-transform">
+              <i data-lucide="activity" class="w-6 h-6 text-white"></i>
+            </div>
+            <h4 class="text-xl font-bold text-solidity leading-tight">Medical Insurance Policy</h4>
+            <p class="mt-4 text-[10px] text-black/50 font-black uppercase tracking-widest leading-relaxed">Health protection and medical network access.</p>
+          </div>
+
+          <div class="p-10 border border-black/10 rounded-none hover:border-solidity-gold hover:shadow-gold transition-all duration-500 bg-white group">
+            <div class="w-12 h-12 gold-gradient flex items-center justify-center mb-8 shadow-gold-soft group-hover:scale-110 transition-transform">
+              <i data-lucide="briefcase" class="w-6 h-6 text-white"></i>
+            </div>
+            <h4 class="text-xl font-bold text-solidity leading-tight">Workers’ Compensation Policy</h4>
+            <p class="mt-4 text-[10px] text-black/50 font-black uppercase tracking-widest leading-relaxed">Professional safety and liability compliance.</p>
+          </div>
+
+          <div class="p-10 border border-black/10 rounded-none hover:border-solidity-gold hover:shadow-gold transition-all duration-500 bg-white group">
+            <div class="w-12 h-12 gold-gradient flex items-center justify-center mb-8 shadow-gold-soft group-hover:scale-110 transition-transform">
+              <i data-lucide="heart" class="w-6 h-6 text-white"></i>
+            </div>
+            <h4 class="text-xl font-bold text-solidity leading-tight">Life Insurance Policy</h4>
+            <p class="mt-4 text-[10px] text-black/50 font-black uppercase tracking-widest leading-relaxed">Financial security for families and legacy.</p>
+          </div>
+
+          <div class="p-10 border border-black/10 rounded-none hover:border-solidity-gold hover:shadow-gold transition-all duration-500 bg-white group">
+            <div class="w-12 h-12 gold-gradient flex items-center justify-center mb-8 shadow-gold-soft group-hover:scale-110 transition-transform">
+              <i data-lucide="shield-check" class="w-6 h-6 text-white"></i>
+            </div>
+            <h4 class="text-xl font-bold text-solidity leading-tight">Personal Accident Policy</h4>
+            <p class="mt-4 text-[10px] text-black/50 font-black uppercase tracking-widest leading-relaxed">Dedicated protection against individual risk.</p>
+          </div>
+
+          <div class="p-10 border border-black/10 rounded-none hover:border-solidity-gold hover:shadow-gold transition-all duration-500 bg-white group">
+            <div class="w-12 h-12 gold-gradient flex items-center justify-center mb-8 shadow-gold-soft group-hover:scale-110 transition-transform">
+              <i data-lucide="map-pin" class="w-6 h-6 text-white"></i>
+            </div>
+            <h4 class="text-xl font-bold text-solidity leading-tight">Travel Insurance Policy</h4>
+            <p class="mt-4 text-[10px] text-black/50 font-black uppercase tracking-widest leading-relaxed">Global medical and transit protection.</p>
+          </div>
+
+          <div class="p-10 border border-black/10 rounded-none hover:border-solidity-gold hover:shadow-gold transition-all duration-500 bg-white group">
+            <div class="w-12 h-12 gold-gradient flex items-center justify-center mb-8 shadow-gold-soft group-hover:scale-110 transition-transform">
+              <i data-lucide="anchor" class="w-6 h-6 text-white"></i>
+            </div>
+            <h4 class="text-xl font-bold text-solidity leading-tight">Marine Insurance Policy</h4>
+            <p class="mt-4 text-[10px] text-black/50 font-black uppercase tracking-widest leading-relaxed">Maritime transit and asset risk management.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fire Category -->
+      <div>
+        <div class="flex items-center gap-4 mb-6">
+          <span class="text-[10px] font-black uppercase tracking-[0.4em] text-solidity-gold">Fire</span>
+          <div class="h-[1px] flex-grow bg-solidity-gold/20 shadow-gold-soft"></div>
+        </div>
+        <h3 class="text-3xl font-bold text-solidity mb-10 tracking-tight">Fire & Asset Protection</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="p-10 border border-black/10 rounded-none hover:border-solidity-gold hover:shadow-gold transition-all duration-500 bg-white group">
+            <div class="w-12 h-12 gold-gradient flex items-center justify-center mb-8 shadow-gold-soft group-hover:scale-110 transition-transform">
+              <i data-lucide="flame" class="w-6 h-6 text-white"></i>
+            </div>
+            <h4 class="text-xl font-bold text-solidity leading-tight">Fire Insurance Policy</h4>
+            <p class="mt-4 text-[10px] text-black/50 font-black uppercase tracking-widest leading-relaxed">Safeguarding physical assets from fire loss.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-24 md:py-32 gold-gradient-soft border-y border-black/5">
+    <div class="mx-auto max-w-6xl px-4 grid md:grid-cols-2 gap-20 items-center">
+      <div>
+        <p class="text-[10px] font-black uppercase tracking-[0.25em] text-black/60 mb-6">The Practice</p>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-solidity italic leading-tight">Led by experience. Built on accountability.</h2>
+        <p class="mt-8 text-black/70 leading-relaxed font-medium">
+          Solidity Consulting & Brokering S.A.R.L. is led by CEO Ziad Akiki, combining insurance expertise with
+          senior accounting discipline to help clients make risk-aware decisions.
+        </p>
+      </div>
+
+      <div class="p-10 bg-white border-t-8 border-solidity-gold rounded-none shadow-gold-lg">
+        <h3 class="text-3xl font-bold text-solidity tracking-tight">Executive Office</h3>
+        <p class="mt-4 text-black/70 font-medium italic">Baabda, Hazmieh, Gallery Semaan, Lebanon</p>
+        <div class="mt-10 border-t border-black/5 pt-10">
+          <div class="text-[10px] font-black uppercase tracking-widest text-black/40">Primary Consultant</div>
+          <div class="mt-2 text-2xl font-bold text-solidity">Ziad Akiki</div>
+          <div class="mt-1 text-[11px] font-black uppercase tracking-widest text-solidity-gold">CEO & Senior Auditor</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24 md:py-32">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="max-w-2xl mb-16">
+        <p class="text-[10px] font-black uppercase tracking-[0.25em] text-black/60">Engagement</p>
+        <h2 class="mt-4 text-4xl md:text-5xl font-bold tracking-tight text-solidity italic leading-tight">Request a Consultation</h2>
+        <p class="mt-6 text-black/70 font-medium leading-loose uppercase tracking-widest text-xs">
+          Share your portfolio requirements and our office will coordinate a detailed fiscal review.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <form class="p-10 border border-black/10 rounded-none bg-white shadow-sm">
+          <div class="grid grid-cols-1 gap-6">
+            <div>
+              <label class="block text-[10px] font-black uppercase tracking-widest text-black/40 mb-2">Full Name</label>
+              <input required type="text" class="w-full border border-black/10 px-4 py-3 outline-none focus:border-solidity-gold transition-colors text-xs font-bold" placeholder="EXECUTIVE NAME" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-black uppercase tracking-widest text-black/40 mb-2">Email Address</label>
+              <input required type="email" class="w-full border border-black/10 px-4 py-3 outline-none focus:border-solidity-gold transition-colors text-xs font-bold" placeholder="NAME@FIRM.COM" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-black uppercase tracking-widest text-black/40 mb-2">Inquiry / Case Notes</label>
+              <textarea class="w-full border border-black/10 px-4 py-3 outline-none focus:border-solidity-gold transition-colors text-xs font-bold" rows="4" placeholder="HOW CAN WE ASSIST?"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="mt-8 btn-primary px-8 py-5 font-black uppercase text-[10px] tracking-[0.3em] w-full shadow-gold-soft gap-4">
+            Send Consultation Request <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </form>
+
+        <div class="p-10 border border-black/10 rounded-none bg-solidity-muted/30 flex flex-col justify-between">
+          <div class="space-y-8">
+            <h3 class="text-2xl font-bold text-solidity">Firm Details</h3>
+            <div class="flex items-center gap-6">
+              <i data-lucide="phone" class="w-5 h-5 text-solidity-gold"></i>
+              <div class="font-bold text-solidity">+961 5 952668</div>
+            </div>
+            <div class="flex items-center gap-6">
+              <i data-lucide="mail" class="w-5 h-5 text-solidity-gold"></i>
+              <div class="font-bold text-solidity">info@solidity-lb.com</div>
+            </div>
+            <div class="flex items-center gap-6">
+              <i data-lucide="map-pin" class="w-5 h-5 text-solidity-gold"></i>
+              <div class="font-bold text-solidity">Hazmieh, Lebanon</div>
+            </div>
+          </div>
+          <div class="mt-12 p-8 gold-gradient-soft border border-solidity-gold/10 rounded-none">
+            <div class="font-bold uppercase text-[11px] tracking-widest text-solidity">Practice Hours</div>
+            <div class="text-xs text-black/70 mt-2 font-medium">Monday–Friday, 09:00–17:00 EET</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-16 border-t border-black/5 bg-white">
+    <div class="mx-auto max-w-6xl px-4 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="flex items-center gap-4 text-[10px] text-black/40 font-black uppercase tracking-[0.3em]">
+        <div class="w-6 h-6 gold-gradient shadow-gold-soft"></div>
+        © <span id="year"></span> Solidity Consulting & Brokering S.A.R.L.
+      </div>
+      <div class="text-[10px] text-black/30 font-black uppercase tracking-[0.4em]">
+        Premium Insurance & Fiscal Advisory • Lebanon
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
 </body>
 </html>
