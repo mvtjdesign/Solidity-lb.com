@@ -82,11 +82,10 @@
 <script type="importmap">
 {
   "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
     "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.36.0",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
@@ -186,7 +185,6 @@
         <h3 class="text-3xl font-bold text-solidity mb-10 tracking-tight">Accident Insurance Policies</h3>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Policy Cards - Accident -->
           <div class="p-10 border border-black/10 rounded-none hover:border-solidity-gold hover:shadow-gold transition-all duration-500 bg-white group">
             <div class="w-12 h-12 gold-gradient flex items-center justify-center mb-8 shadow-gold-soft group-hover:scale-110 transition-transform">
               <i data-lucide="car" class="w-6 h-6 text-white"></i>
@@ -302,19 +300,22 @@
       </div>
 
       <div class="grid md:grid-cols-2 gap-12">
-        <form class="p-10 border border-black/10 rounded-none bg-white shadow-sm">
+        <!-- Live Formspree Endpoint -->
+        <form action="https://formspree.io/f/xaqqqvqw" method="POST" class="p-10 border border-black/10 rounded-none bg-white shadow-sm">
+          <input type="hidden" name="_next" value="thank-you.html">
+          
           <div class="grid grid-cols-1 gap-6">
             <div>
               <label class="block text-[10px] font-black uppercase tracking-widest text-black/40 mb-2">Full Name</label>
-              <input required type="text" class="w-full border border-black/10 px-4 py-3 outline-none focus:border-solidity-gold transition-colors text-xs font-bold" placeholder="EXECUTIVE NAME" />
+              <input required type="text" name="full_name" class="w-full border border-black/10 px-4 py-3 outline-none focus:border-solidity-gold transition-colors text-xs font-bold" placeholder="EXECUTIVE NAME" />
             </div>
             <div>
               <label class="block text-[10px] font-black uppercase tracking-widest text-black/40 mb-2">Email Address</label>
-              <input required type="email" class="w-full border border-black/10 px-4 py-3 outline-none focus:border-solidity-gold transition-colors text-xs font-bold" placeholder="NAME@FIRM.COM" />
+              <input required type="email" name="email" class="w-full border border-black/10 px-4 py-3 outline-none focus:border-solidity-gold transition-colors text-xs font-bold" placeholder="NAME@FIRM.COM" />
             </div>
             <div>
               <label class="block text-[10px] font-black uppercase tracking-widest text-black/40 mb-2">Inquiry / Case Notes</label>
-              <textarea class="w-full border border-black/10 px-4 py-3 outline-none focus:border-solidity-gold transition-colors text-xs font-bold" rows="4" placeholder="HOW CAN WE ASSIST?"></textarea>
+              <textarea required name="message" class="w-full border border-black/10 px-4 py-3 outline-none focus:border-solidity-gold transition-colors text-xs font-bold" rows="4" placeholder="HOW CAN WE ASSIST?"></textarea>
             </div>
           </div>
           <button type="submit" class="mt-8 btn-primary px-8 py-5 font-black uppercase text-[10px] tracking-[0.3em] w-full shadow-gold-soft gap-4">
@@ -361,7 +362,6 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-    // Initialize Lucide icons
     lucide.createIcons();
   </script>
 </body>
